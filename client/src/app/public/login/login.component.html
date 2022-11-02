@@ -1,0 +1,13 @@
+<h1>Sign In</h1>
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Username</mat-label>
+        <input formControlName="username" matInput type="text" placeholder="johndoe777">
+    </mat-form-field>
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input formControlName="password" matInput type="password">  
+    </mat-form-field>
+    <button class="full-width" mat-raised-button color="primary" [disabled]="form.invalid" type="submit">Login</button>
+    <p *ngIf="this.err">{{this.err}}</p>
+</form>

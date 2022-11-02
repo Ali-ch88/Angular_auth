@@ -1,0 +1,8 @@
+.example-card {
+    max-width: 400px;
+  }
+.shows{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+  
+ <span>My App</span>
+ <span class="example-spacer"></span>
+  <ng-container *ngIf="user; then thenTemplate; else elseTemplate"></ng-container>
+ <ng-template #thenTemplate>
+   <p>{{user}}</p>
+   <a (click)="logout()" routerLink="/login">Logout</a>
+ </ng-template>
+ <ng-template #elseTemplate>
+  <a routerLink="/login">Login</a>
+ </ng-template>
+
+ 
+</mat-toolbar>
+<router-outlet></router-outlet>

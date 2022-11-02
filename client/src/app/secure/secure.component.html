@@ -1,0 +1,30 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Search shows</mat-label>
+        <input formControlName="query" matInput type="text" placeholder="stand">
+    </mat-form-field>
+    <button class="full-width" mat-raised-button color="primary" [disabled]="form.invalid" type="submit">Search</button>
+    <p *ngIf="this.err">{{this.err}}</p>
+</form>
+<div class="shows">
+    <div *ngFor="let item of shows">
+        <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>{{item.show.name}}</mat-card-title>
+              <mat-card-subtitle>{{item.show.type}}</mat-card-subtitle>
+              <mat-card-subtitle>{{item.show.rating}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src={{item.show.image.medium}} alt="Photo of a Shiba Inu">
+            <mat-card-content>
+              <p>
+               {{item.show.summary}}
+              </p>
+              <div>
+                  <p>{{item.show.schedule.time}}</p>
+                  <div *ngFor="let day of item.show.schedule.days">{{day}}</div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+    </div>
+</div>
+
